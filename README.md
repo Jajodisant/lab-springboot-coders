@@ -23,7 +23,7 @@ API REST desarrollada con Spring Boot para practicar la construccion de controla
 - Endpoint para contar tareas definidas en el servicio.
 - Persistencia en memoria usando un repositorio basado en `List`.
 - Documentacion interactiva con Swagger UI.
-- Arquitectura por capas: controladores, servicios, repositorios, modelos y DTOs.
+- Arquitectura por capas: controladores, servicios, repositorios y modelos.
 
 ## Tecnologias
 
@@ -114,8 +114,6 @@ src
 │   │   │   ├── CoderStatsController.java
 │   │   │   ├── GreetingController.java
 │   │   │   └── TaskController.java
-│   │   ├── dtos
-│   │   │   └── CoderRequest.java
 │   │   ├── models
 │   │   │   └── Coder.java
 │   │   ├── repositories

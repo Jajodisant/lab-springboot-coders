@@ -1,6 +1,5 @@
 package com.riwi.LabSpringBoot.services;
 
-import com.riwi.LabSpringBoot.dtos.CoderRequest;
 import com.riwi.LabSpringBoot.models.Coder;
 import com.riwi.LabSpringBoot.repositories.CoderRepository;
 import org.springframework.context.annotation.Scope;
@@ -36,30 +35,24 @@ public class CoderService {
                 .toList();
     }
 
-    public Coder create(CoderRequest coderRequest) {
-        if (coderRequest.getName() == null || coderRequest.getName().isEmpty()) {
+    public Coder create(Coder coder) {
+        if (coder.getName() == null || coder.getName().isEmpty()) {
             throw new RuntimeException("El nombre es obligatorio");
         }
-
-        Coder coder = new Coder(
-                coderRequest.getId(),
-                coderRequest.getName(),
-                coderRequest.getClan()
-        );
 
         repository.save(coder);
         return coder;
     }
 
-    public Coder update(Long id, CoderRequest coderRequest) {
+    public Coder update(Long id, Coder coder) {
         Coder coderToUpdate = getById(id);
 
         if (coderToUpdate == null) {
             return null;
         }
 
-        coderToUpdate.setName(coderRequest.getName());
-        coderToUpdate.setClan(coderRequest.getClan());
+        coderToUpdate.setName(coder.getName());
+        coderToUpdate.setClan(coder.getClan());
 
         return coderToUpdate;
     }

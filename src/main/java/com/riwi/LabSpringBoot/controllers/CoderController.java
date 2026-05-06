@@ -1,6 +1,5 @@
 package com.riwi.LabSpringBoot.controllers;
 
-import com.riwi.LabSpringBoot.dtos.CoderRequest;
 import com.riwi.LabSpringBoot.models.Coder;
 import com.riwi.LabSpringBoot.services.CoderService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -55,16 +54,16 @@ public class CoderController {
     @ApiResponse(responseCode = "200", description = "Coder creado correctamente")
     @ApiResponse(responseCode = "400", description = "Datos de entrada invalidos")
     @PostMapping
-    public Coder create(@RequestBody CoderRequest coderRequest) {
-        return coderService.create(coderRequest);
+    public Coder create(@RequestBody Coder coder) {
+        return coderService.create(coder);
     }
 
     @Operation(summary = "Actualizar un coder", description = "Actualiza el nombre y clan de un coder existente.")
     @ApiResponse(responseCode = "200", description = "Coder actualizado correctamente")
     @PutMapping("/{id}")
     public Coder update(@Parameter(description = "ID del coder que se desea actualizar", example = "1") @PathVariable Long id,
-                        @RequestBody CoderRequest coderRequest) {
-        return coderService.update(id, coderRequest);
+                        @RequestBody Coder coder) {
+        return coderService.update(id, coder);
     }
 
     @Operation(summary = "Eliminar un coder", description = "Elimina un coder de la lista en memoria usando su ID.")
